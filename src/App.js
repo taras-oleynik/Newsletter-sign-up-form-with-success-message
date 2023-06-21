@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import iconSuccess from "./images/icon-success.svg";
+import Header from "./Header";
+import Main from "./Main";
+import "./App.css";
+import List from "./List";
+import Footer from "./Footer";
+import { useState } from "react";
 
 function App() {
+  const [screen, setScreen] = useState("form");
+  if (screen === "success") {
+    return (
+      <div className="success-container">
+        <div className="success-text">
+          <img className="iconSuccess" src={iconSuccess} />
+          <h1>Thanks for subscribing!</h1>
+          <p>
+            A confirmation email has been sent to
+            <span className="email-bold"> ash@loremcompany.com.</span> Please
+            open it and click the button inside to confirm your subscription.
+          </p>
+          <button className="submit-button dismiss-btn">Dismiss message</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <div className="stay-updated">
+          <Main />
+          <List />
+          <Footer setScreen={setScreen} />
+        </div>
+      </main>
     </div>
   );
 }
