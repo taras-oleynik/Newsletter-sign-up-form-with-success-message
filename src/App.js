@@ -27,7 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello there</h1>
       <Header />
       <main>
         <div className="stay-updated">
